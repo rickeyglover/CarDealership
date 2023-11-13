@@ -14,16 +14,19 @@ public class Reader {
         String line;
         while ((line = reader.readLine()) != null) {
             String[] parts = line.split("\\|");
-            if (parts.length >= 5) {
-                String make = parts[0];
-                String model = parts[1];
-                int year = Integer.parseInt(parts[2]);
-                String color = parts[3];
-                double price = Double.parseDouble(parts[4]);
+            if (parts.length >= 7) {
+                int vin = Integer.parseInt(parts[0]);
+                int year = Integer.parseInt(parts[1]);
+                String make = parts[2];
+                String model = parts[3];
+                String vehicleType = parts[4];
+                String color = parts[5];
+                int odometer = Integer.parseInt(parts[6]);
+                double price = Double.parseDouble(parts[7]);
 
-                Cars.put(make, new Vehicle(make, model, year, color, price));
-                count++;
-                inventory = new ArrayList<>(Cars.values());
+                Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType,  color,  odometer, price);
+                Cars.put(make, vehicle);
+                inventory.add(vehicle);
             }
         }
     }

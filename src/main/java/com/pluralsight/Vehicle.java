@@ -5,12 +5,12 @@ public class Vehicle {
     private final int year;
     private final String make;
     private final String model;
-    private String vehicleType;
+    private final String vehicleType;
     private final String color;
     private int odometer;
     private final double price;
 
-    public Vehicle(String make, String model, int year, String color, double price) {
+    public Vehicle(int vin, int year, String make, String model ,String vehicleType, String color, int odometer, double price) {
         this.vin = vin;
         this.year = year;
         this.make = make;
